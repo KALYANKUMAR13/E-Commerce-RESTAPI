@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/register")
+    @GetMapping("/register")
     public String register(@RequestBody User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
             return "Email already exists";
@@ -27,8 +27,12 @@ public class UserController {
         userRepository.save(user);
         return "Registration successful";
     }
-
-    @PostMapping("/login")
+  
+    @GetMapping("/data")
+    public List<User> getAllYourEntities() {
+        return userRepository.findAll();
+    }
+    @GetMapping("/login")
     public String login(@RequestBody User user) {
         User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser == null || !existingUser.getPassword().equals(user.getPassword())) {
