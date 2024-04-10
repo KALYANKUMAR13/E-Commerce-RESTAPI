@@ -28,7 +28,7 @@ public class UserController {
         return "Registration successful";
     }
   
-    @GetMapping("/data")
+    @GetMapping("/users")
     public List<User> getAllYourEntities() {
         return userRepository.findAll();
     }
