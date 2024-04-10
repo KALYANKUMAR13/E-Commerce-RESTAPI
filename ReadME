@@ -20,4 +20,7 @@ To login http://localhost:8080/api/login
     "password": "password123"
 }
 
+http://localhost:8080/api/data
+The above endpoint will give all users from the database
+
 Don't use the above names, because the above data is already in database
